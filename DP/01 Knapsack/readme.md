@@ -8,4 +8,7 @@ IMP: In Subset sum problem,
 ## Subset sum problem
 1. Subset Sum
 2. Equal sum partition
-3. 
+3. Count of Subsets with a Given Sum
+4. Minimum subset sum difference
+5. Number of subsets with a given difference
+6. Target Sum
