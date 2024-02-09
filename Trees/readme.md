@@ -26,5 +26,28 @@ pair<bool, int> helper(TreeNode* curNode, int target){
 1. Nodes at a distance k from a given node.
 2. Time Taken to infect the complete Binary Tree.
  
- 
- 
+ ### pattern - Diameter of Tree
+ 1. Diameter of a Tree
+ 2. Maximum Path Sum
+ ```cpp
+    ************************* Maximum Path Sum *************************
+    int ans;
+    int maxSumStartingWithThisRoot(TreeNode* curRoot){
+        if(curRoot == nullptr){
+            return INT_MIN;
+        }
+        
+        int leftAns  = max(maxSumStartingWithThisRoot(curRoot->left), 0);   // IMPORTANT
+        int rightAns = max(maxSumStartingWithThisRoot(curRoot->right), 0);  // IMPORTANT
+        
+        ans = max(ans, curRoot->val + leftAns + rightAns);
+        
+        return curRoot->val + max(leftAns, rightAns);
+    }
+    
+    int maxPathSum(TreeNode* root) {
+        ans = INT_MIN;
+        maxSumStartingWithThisRoot(root);
+        return ans;
+    }
+```
