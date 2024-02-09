@@ -29,6 +29,7 @@ pair<bool, int> helper(TreeNode* curNode, int target){
  ### pattern - Diameter of Tree
  1. Diameter of a Tree
  2. Maximum Path Sum
+ 3. Maximum path sum from leaf to leaf nodes
  ```cpp
     ************************* Maximum Path Sum *************************
     int ans;
