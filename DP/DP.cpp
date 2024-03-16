@@ -1,5 +1,7 @@
-################################################################
+
+######################################################################################################
 ★ GENERAL  
+
 
 1. Longest Arithmetic Progression.
 Given an array called A[] of sorted integers having no duplicates, find the length of the Longest Arithmetic Progression (LLAP) in it.
@@ -64,3 +66,5 @@ Here Top down DP is used, slower than bottom up DP.
 
 # Code 2:
 Here Bottom up DP is used.
+
+------------------------------------------------------------------------------------------------------------------------
