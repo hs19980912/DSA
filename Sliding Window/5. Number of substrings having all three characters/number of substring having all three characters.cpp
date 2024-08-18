@@ -31,7 +31,7 @@ public:
         
 /*
         current window is from left to right -1,
-        if this window valid?? Does it contain all 3 chars?
+        is this window valid?? Does it contain all 3 chars?
         if yes, 
             Then all the substring of the form 
             [left...right-1], [left...right], [left...right+1], [left...size] are valid.
