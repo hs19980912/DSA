@@ -37,10 +37,10 @@ public:
             if(len - maxFre <= k){
                 maxLen = max(maxLen, len);
             }else{
-                while( (len - maxFre) > k && left < right){
+                if( (len - maxFre) > k && left < right){
                     fre[s[left]-'A']-=1;
                     left+=1;
-                    for(int i=0; i<26; ++i){
+                    for(int i=0; i<26; ++i){                            // This for loop is not needed
                         maxFre = max(maxFre, fre[i]);
                     }
                     len = right - left + 1;
