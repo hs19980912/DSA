@@ -27,6 +27,7 @@ pair<bool, int> helper(TreeNode* curNode, int target){
 2. Time Taken to infect the complete Binary Tree.
  
  ### pattern - Diameter of Tree
+ Here always consider and try to find the solution if current root in the recursive tree is a part of the solution.So every recursive call makes sure that the case containing the curRoot is covered. So, we have made a set of all exhaustive cases by simple dfs.
  1. Diameter of a Tree
  2. Maximum Path Sum
  3. Maximum path sum from leaf to leaf nodes
