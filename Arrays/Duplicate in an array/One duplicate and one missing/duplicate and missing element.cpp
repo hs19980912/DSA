@@ -33,7 +33,6 @@ void printTwoElements(vector<int>& arr)
     cout << "Missing " << missing;
 }
 
-/* Driver code */
 int main()
 {
     vector<int> arr = { 7, 3, 4, 5, 5, 6, 2 };
