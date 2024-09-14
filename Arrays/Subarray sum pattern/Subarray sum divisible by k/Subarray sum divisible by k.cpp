@@ -18,21 +18,39 @@ https://www.youtube.com/watch?v=ufXxc8Vty9A
 ===============================================================================
 
 class Solution {
-    public int subarraysDivByK(int[] A, int K) {
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        map.put(0,1);
+public:
+    int subarraysDivByK(std::vector<int>& A, int K) {
+        std::unordered_map<int, int> map;
+        map[0] = 1; // Initialize with remainder 0 having one count
         int runningSum = 0;
-        int count = 0 ;
-        for(int i=0;i<A.length;i++){
+        int count = 0;
+        
+        for (int i = 0; i < A.size(); ++i) {
             runningSum += A[i];
             int remainder = runningSum % K;
-            if(remainder < 0) remainder +=K;
-            if(map.containsKey(remainder)) {
-                count += map.get(remainder);      
+
+            // Handle negative remainders to ensure correct modulus behavior
+            if (remainder < 0) remainder += K;
+
+            // If the remainder is already in the map, it means there are subarrays
+            // whose sum is divisible by K
+            if (map.find(remainder) != map.end()) {
+                count += map[remainder];
             }
-             map.put(remainder, map.getOrDefault(remainder,0)+1);  
+
+            // Update the frequency of the current remainder
+            map[remainder]++;
         }
         
-         return count;
-    }            
+        return count;
+    }
+};
+
+int main() {
+    Solution solution;
+    std::vector<int> A = {4, 5, 0, -2, -3, 1};
+    int K = 5;
+    int result = solution.subarraysDivByK(A, K);
+    std::cout << "Number of subarrays divisible by " << K << ": " << result << std::endl;
+    return 0;
 }
