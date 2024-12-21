@@ -20,11 +20,15 @@ Given a sorted array of non-negative distinct integers, find the smallest missin
     every index has the value equal to the index itself.
 
     What shall we find?
-    The first number which doesnt lie at its proper index. Simple. Proper index is the value of the number itself.
+    The first number which doesnt lie at its proper index.
+    Simple. Proper index is the value of the number itself.
 
     Here the ans can be between 0 to n. Now we just start a binary search.
 
-    Note: It is a good example where we should not see the input array as True or false. Here we see the entire number line from 0 to n as True or False. Or in other words, The entire range of answer as true or false.
+    Note: It is a good example where we should not see the
+          input array as True or false. Here we see the entire
+          number line from 0 to n as True or False. Or in other
+          words, The entire range of answer as true or false.
     
 
 
