@@ -35,12 +35,30 @@ Algo:   Given an arr of length n
 Execution:
         At the current index i:
         Condition:  The number must be greater than 0, and <= length of the arr.
-                    AND,  The number must be different than the correct number for that index.
+                    AND,  A correct duplicate should not already be present at its place, then swap
                     if True:
                         swap the number -> once swapped, the swapped number must be analyzed again.
                         hence we do not increment i.
                     if False:
                         just increment i
+
+A correct duplicate should not already be present at its place, then swap:
+eg 1.
+current arr = [3 2 3 4 8 2 7 1], current i = 0;
+Shall we swap arr[i] with arr[2]?
+NO, because a duplicate correct value "3" is already present at arr[2].
+
+eg 2.
+current arr = [3 2 3 4 1 2 7 8], current i = 4;
+Shall we swap arr[i] i.e. arr[4] with its correct index?
+YES, correct index of arr[i] is 0, currently arr[i] or arr[4] is 1, its correct index should be 0
+and at 0th index 3 is present, which is the incorrect value. So swap arr[0] with arr[4].
+
+eg 3.
+current arr = [1 2 3 4 3 2 7 8], current i = 4;
+Shall we swap?
+NO, because a duplicate correct value "3" is already present at arr[2] (ie, its correct position)
+                             
 ```
 
 <details>
