@@ -1,7 +1,6 @@
-### When only non-negative elements are present
+### When negative numbers are NOT present
 
-Given a sorted array of non-negative distinct integers, find the smallest missing non-negative element in it.
-
+Given a sorted array of non-negative distinct integers, find the smallest missing non-negative element in it. \
 **Input:** [0, 1, 2, 6, 9, 11, 15]  
 **Output:** 3
 
@@ -14,25 +13,25 @@ Given a sorted array of non-negative distinct integers, find the smallest missin
 [Link](https://www.techiedelight.com/?problem=SmallestMissingNumber)
 [Link](https://www.geeksforgeeks.org/find-the-first-missing-number/)
 
-    Algorithm: 
-    We are given that the Array is sorted and contains only elements between 0 and n.
-    
-    Our best(complete) case becomes: 0 1 2 3 4 ... n
-    every index has the value equal to the index itself.
+```
+Note: It is a good example where we should not see the
+input array as True or false. Here we see the entire
+number line from 0 to n as True or False. Or in other
+words, The entire range of answer as true or false.
+```
+```
+Algorithm: 
+We are given that the Array is sorted and contains only elements between 0 and n.
 
-    What shall we find?
-    The first number which doesnt lie at its proper index.
-    Simple. Proper index is the value of the number itself.
+Our best(complete) case becomes: 0 1 2 3 4 ... n
+every index has the value equal to the index itself.
 
-    Here the ans can be between 0 to n. Now we just start a binary search.
+What shall we find?
+The first number which doesnt lie at its proper index.
+Simple. Proper index is the value of the number itself.
 
-    Note: It is a good example where we should not see the
-          input array as True or false. Here we see the entire
-          number line from 0 to n as True or False. Or in other
-          words, The entire range of answer as true or false.
-    
-
-
+Here the ans can be between 0 to n. Now we just start a binary search.
+```
 
 <details>
 <summary><span style="font-size:0.9em; font-family: 'consolas', monospace;">code</span>
@@ -62,5 +61,3 @@ int findSmallestMissingNumber(vector<int> const &nums)
 }
 ```
 </details>
-
-----
