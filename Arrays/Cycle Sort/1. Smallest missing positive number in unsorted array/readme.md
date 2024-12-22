@@ -1,4 +1,4 @@
-### Cycle Sort - smallest positive missing number in an unsorted array
+### Cycle Sort - smallest positive missing number in an unsorted array in O(n) time and O(1) space
 
 Given an unsorted array arr[] with both positive and negative elements, the task is to find the smallest positive number missing from the array.\
 Note: You can modify the original array.
