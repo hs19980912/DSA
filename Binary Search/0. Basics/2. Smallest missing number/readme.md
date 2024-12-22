@@ -11,7 +11,8 @@ Given a sorted array of non-negative distinct integers, find the smallest missin
 **Input:** [0, 1, 2, 3, 4, 5, 6]  
 **Output:** 7
 
-[Question Link](https://www.techiedelight.com/?problem=SmallestMissingNumber)
+[Link](https://www.techiedelight.com/?problem=SmallestMissingNumber)
+[Link](https://www.geeksforgeeks.org/find-the-first-missing-number/)
 
     Algorithm: 
     We are given that the Array is sorted and contains only elements between 0 and n.
