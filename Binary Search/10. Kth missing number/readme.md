@@ -3,12 +3,12 @@
 Given an array arr of positive integers sorted in a strictly increasing order, and an integer k.
 Return the kth positive integer that is missing from this array.
 
-**Input**: [2,3,4,7,11], k = 5
-**Output**: 9
+**Input**: [2,3,4,7,11], k = 5   
+**Output**: 9  
 **Explanation**: The missing positive integers are [1,5,6,8,9,10,12,13,...]. The 5th missing positive integer is 9.
 
-**Input**: [1,2,3,4], k = 2
-**Output**: 6
+**Input**: [1,2,3,4], k = 2  
+**Output**: 6  
 **Explanation**: The missing positive integers are [5,6,7,...]. The 2nd missing positive integer is 6.
 
 [LC 1539](https://leetcode.com/problems/kth-missing-positive-number/)
@@ -47,20 +47,23 @@ eg, at index 0, we have missed 1 numbers, so 2 + 4 = 6 can be a possible ans, im
 
 ```cpp
     int findKthPositive(vector<int>& arr, int k) {
-        int ans = k;
+        int ans = k;    // "ans" should at least be k
         int l = 0;
         int r = arr.size()-1;
-        
+
         while(l<=r){
-            int mid = l + (r-l)/2;
-            if(arr[mid]-(mid+1) >= k){
-                r = mid-1;
-            }else{
-                ans = k + mid + 1;
+            int mid = l+(r-l)/2;
+            int eleMissed = arr[mid]-(mid+1);
+            if(eleMissed<k){
+                ans = arr[mid]+(k-eleMissed);
+                // go the right, can get better answer
                 l = mid+1;
+            }else{
+                // eleMissed > k
+                r = mid-1;
             }
         }
-        
+
         return ans;
     }
 ```
