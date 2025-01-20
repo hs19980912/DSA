@@ -1,4 +1,17 @@
-# DSA
+# 🌴 DSA Patterns
+   <details>
+     <summary>Subarray sum problems - generally involves <b>prefix sum</b></summary>
+
+     • Find the number of subarrays with a sum equal to k.  
+     • Find the longest subarray with a sum equal to k.  
+     • Check if a subarray with a given sum exists.  
+     • Count subarrays with a sum divisible by k.
+
+   </details>
+
+
+---
+# 🌴 Notes
 
 ### initialize 2D vector after declaration
 ```cpp
