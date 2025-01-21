@@ -1,5 +1,5 @@
 ### Subarray sum problems
-> ❗ Generally involves **Prefix Sum pattern**.  
+> ❗ Generally involves **Prefix Sum**.  
 > ❗ Simple for loop and an unordered map.
 
 1. Subarray sum divisible by K
