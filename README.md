@@ -62,7 +62,35 @@ sort(nums.begin(),nums.end()); // doesn't compile anymore. Built-in arrays don't
 ```
 
 --------------------------------
-### sorting 2 vectors keeping the index mapping
+### sorting vector of type vector<tuple<int, string, int>>
+used in google - find overlapping intervals
+```cpp
+findIntervals(const vector<pair<int, int>>& input){
+
+    vector<tuple<int, string, int>> events;
+    for(int i=0; i<input.size(); ++i){
+    	auto cur = input[i];	// pair<begin, end> time
+    	events.push_back({cur.first, "begin", i+1});
+    	events.push_back({cur.second, "end", i+1});
+    }
+
+    sort(events.begin(), events.end()); 
+// HOW WOULD THE SORTING HAPPEN? Ascending or decending
+}
+```
+#### **How does `std::sort()` work with tuples?**
+By default, **`std::sort()` sorts tuples lexicographically**, meaning:
+- It first sorts by **the first element** (`int` time).
+- If two events have the same time, it sorts by **the second element** (`string`).
+- If both time and event type are the same, it sorts by **the third element** (`int` person ID).
+
+
+Sorting works as follows:
+1. **Sort by time (first element of tuple)** → **Ascending order**.
+2. **If two events have the same time, sort by type (`"begin"` < `"end"` in lexicographical order)**.
+3. **If time and type are the same, sort by person ID (ascending)**.
+--------------------------------
+### Sorting 2 vectors keeping the index mapping
 used in Activity selection, Meeting Room
 #### method 1 - using lamda
 ```cpp
