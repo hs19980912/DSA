@@ -29,6 +29,16 @@ Explanation: None of the intervals overlap, so we can put all of them in one gro
 ```
 
 
+```
+Take [[5,10],[6,8],[1,5],[2,3],[1,10]] example
+Plot it on same graph at different horizontal level
+ 
+First plot  [1,5] and [5,10]
+then [2,3] and [6,8]
+then [1, 10]
+```
+
+
 ```cpp
 int minGroups(vector<vector<int>>& intervals) {
     multimap<int, int> m;
