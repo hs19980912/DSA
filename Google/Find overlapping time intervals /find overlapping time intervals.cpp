@@ -9,6 +9,25 @@ Output
 6, 7: P1, P2
 7, 8: P2
 9,10:P3 
+=====================================================================================================================
+
+Given on-call rotation schedule for multiple people by: their name, start time and end time of the rotation:
+
+Abby 1 10
+Ben 5 7
+Carla 6 12
+David 15 17
+
+Your goal is to return rotation table without overlapping periods representing who is on call during that time. Return "Start time", "End time" and list of on-call people:
+
+1 5 Abby
+5 6 Abby, Ben
+6 7 Abby, Ben, Carla
+7 10 Abby, Carla
+10 12 Carla
+15 17 David
+
+=====================================================================================================================
 
 #include <iostream>
 #include <string>
