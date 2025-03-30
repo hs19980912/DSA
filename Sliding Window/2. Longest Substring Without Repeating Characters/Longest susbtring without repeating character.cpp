@@ -12,8 +12,31 @@ Example 2:
 Input: s = "bbbbb"
 Output: 1
 Explanation: The answer is "b", with the length of 1.
+===========================================================================================
 
-=====================================================================================================
+int lengthOfLongestSubstring(string s) {
+    unordered_map<char, int> m; 
+    int i = 0;
+    int j = 0;
+    int ans = 0;
+    int n = s.size();
+
+    while(j<n){
+        m[s[j]]+=1;
+        while(m[s[j]]>1 && i<=j){
+            m[s[i]]-=1;
+            i+=1;
+        }
+
+        ans = max(j-i+1, ans);
+        j+=1;
+    }
+
+    return ans;
+}
+
+
+===========================================================================================
 
     int lengthOfLongestSubstring(string s) {
         int ans = 0;
