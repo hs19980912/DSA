@@ -17,6 +17,40 @@ Output: 3
 Explanation: Subarrays formed with exactly 3 different integers: [1,2,1,3], [2,1,3], [1,3,4].
 
 ============================================================================================
+
+    int atmost(vector<int>& nums, int k){
+        int ans = 0;
+        int i = 0;
+        int j = 0;
+        unordered_map<int, int> m;
+        int n = nums.size();
+        while(j<n){
+            m[nums[j]]+=1;
+            while(m.size()>k && i<=j){
+                m[nums[i]]-=1;
+                if(m[nums[i]]==0){
+                    m.erase(nums[i]);
+                }
+                i+=1;
+            }
+            ans += (j-i+1);
+            j+=1;
+        }
+
+        return ans;
+    }
+
+    int subarraysWithKDistinct(vector<int>& nums, int k) {
+        // exact(n) = atmost(n)-atmost(n-1);
+        int atmost_n = atmost(nums, k);
+        int atmost_n_1 = atmost(nums, k-1);
+        
+        int exact_n = atmost_n - atmost_n_1;
+        
+        return exact_n; 
+    }
+
+============================================================================================
 class Solution {
 public:
     
