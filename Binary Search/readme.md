@@ -8,3 +8,4 @@
 8. Koko eating bananas
 9. Maximum Candies allocated to k children
 10. Kth missing number
+11. Len of longest special substring that occurs thrice 
