@@ -1,3 +1,10 @@
+### There is no concept of curVisited array in undirected graph.
+**Why?**  
+In Unidrected graph, if we begin traversing in 2nd traversal, then there is no chance that we would come across the node which was already visited in 1st traversal. Because if that was possible, then we would have visited the entire second traversal along with the first traversal itself.
+
+Second traversal in undirected graphs always cater to unconnected components all together.
+
+
 ## • Nodal Graph
 
 <div style="text-align: center;">
@@ -142,6 +149,62 @@ bool containsCycle(vector<vector<char>>& grid) {
     }
 
     // no cycle found
+    return false;
+}
+```
+</details>
+
+<details>
+<summary><span style="font-size:1em; font-family: 'consolas', monospace;">b. Using DFS</span>
+</summary>
+
+```cpp
+vector<int> dx{0, 0, 1, -1};
+vector<int> dy{1, -1, 0, 0};
+int rowLim;
+int colLim;
+
+bool isValid(int curRow, int curCol){
+    return (curRow>=0 && curRow<rowLim && curCol>=0 && curCol<colLim);
+}
+
+bool findCycle(int curRow, int curCol, vector<vector<char>>& grid, vector<vector<bool>>& visited, int preRow = -1, int preCol = -1){
+    if(visited[curRow][curCol] == true){
+        return true;
+    }
+    visited[curRow][curCol] = true;
+
+    for(int i=0; i<4; ++i){
+        int newRow = curRow + dy[i];
+        int newCol = curCol + dx[i];
+        if(isValid(newRow, newCol) && grid[newRow][newCol]==grid[curRow][curCol]
+            && !(newRow==preRow && newCol==preCol)){
+            bool hasCycle = findCycle(newRow, newCol, grid, visited, curRow, curCol);
+            if(hasCycle){
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+bool containsCycle(vector<vector<char>>& grid) {
+    rowLim = grid.size();
+    colLim = grid[0].size();
+    vector<vector<bool>> visited(grid.size(), vector<bool>(grid[0].size(), false));
+    
+    for(int i=0; i<grid.size(); ++i){
+        for(int j=0; j<grid[0].size(); ++j){
+            if(visited[i][j] == false){
+                bool hasCycle = findCycle(i, j, grid, visited);
+                if(hasCycle){
+                    return true;
+                }
+            }
+        }
+    }
+
     return false;
 }
 ```
