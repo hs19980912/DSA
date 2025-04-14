@@ -68,6 +68,55 @@ bool cycleDetection (vector<vector<int>>& edges, int n, int m)
 </details>
 
 
+<details>
+<summary><span style="font-size:1em; font-family: 'consolas', monospace;">b. Using DFS</span>
+</summary>
+
+```cpp
+bool findCycle(int curNode, vector<vector<int>>& adj, vector<bool>& visited, int preNode=-1){
+    if(visited[curNode] == true){
+        return true;
+    }
+
+    visited[curNode] = true;
+    for(int i=0; i<adj[curNode].size(); ++i){
+        int adjNode = adj[curNode][i];
+        if(adjNode!=preNode){
+            bool hasCycle = findCycle(adjNode, adj, visited, curNode);
+            if(hasCycle){
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+bool cycleDetection (vector<vector<int>>& edges, int n, int m)
+{
+    vector<vector<int>> adj(n+1);
+    for(int i=0; i<m; ++i){
+        adj[edges[i][0]].push_back(edges[i][1]);
+        adj[edges[i][1]].push_back(edges[i][0]);
+    }
+
+    vector<bool> visited(n+1, false);
+
+    for(int curNode=1; curNode<=n; ++curNode){
+        if(visited[curNode] == false){
+            bool isCycle = findCycle(curNode, adj, visited);
+            if(isCycle){
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+```
+</details>
+
+
 
 ##  • 2D Grid
 
