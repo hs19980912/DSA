@@ -2,7 +2,8 @@
 2. Capacity to dhip packages within D days
 3. Painter's Partition
 4. Aggresive Cows
-5. Split array in k subarrays such that the largest sum in minimized
+5. Split array in k subarrays such that the largest sum in minimized,
+   Find minimum time to finish all jobs with given constraints
 6. Divide Chocolates
 7. Minimized maximum of Products distributed to any store, LC 2064
 8. Koko eating bananas
