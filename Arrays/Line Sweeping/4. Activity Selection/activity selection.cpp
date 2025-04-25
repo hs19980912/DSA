@@ -18,3 +18,78 @@ Explanation: A person can perform activities 0, 1 and 3.
 
 
 -----------------------------------------------------------------------------
+
+
+int maxActivities(vector<int>& start, vector<int>& finish) {
+    // Error checking
+    if (start.size() != finish.size() || start.empty()) {
+        return 0;
+    }
+
+    // Create events vector
+    vector<tuple<int, string, int>> events;
+    for (int i = 0; i < start.size(); ++i) {
+        events.push_back({start[i], "start", i});
+        events.push_back({finish[i], "finish", i});
+    }
+    
+    // Sort events by timestamp
+    sort(events.begin(), events.end());
+    
+    set<int> currentActivities;  // Track ongoing activities
+    set<int> completedActivities;  // Track completed activities
+    int maxActivitiesCount = 0;
+    int lastFinishTime = -1;
+    
+    for (const auto& event : events) {
+        int time = get<0>(event);
+        string eventType = get<1>(event);
+        int activityId = get<2>(event);
+        
+        if (eventType == "start") {
+            // Only consider this activity if we're not already doing something
+            if (lastFinishTime <= start[activityId]) {
+                currentActivities.insert(activityId);
+            }
+        } else { // eventType == "finish"
+            // If we were doing this activity, mark it as done
+            if (currentActivities.find(activityId) != currentActivities.end()) {
+                currentActivities.erase(activityId);
+                completedActivities.insert(activityId);
+                maxActivitiesCount++;
+                lastFinishTime = time;
+            }
+        }
+    }
+    
+    return maxActivitiesCount;
+}
+
+// However, the above approach is unnecessarily complex for this problem.
+// Here's a more standard and efficient solution:
+int maxActivitiesGreedy(vector<int>& start, vector<int>& finish) {
+    int n = start.size();
+    if (n == 0) return 0;
+    
+    // Create pairs of (finish time, start time)
+    vector<pair<int, int>> activities;
+    for (int i = 0; i < n; i++) {
+        activities.push_back({finish[i], start[i]});
+    }
+    
+    // Sort by finish time
+    sort(activities.begin(), activities.end());
+    
+    int count = 1;  // We can always pick the first activity
+    int lastFinish = activities[0].first;
+    
+    for (int i = 1; i < n; i++) {
+        if (activities[i].second >= lastFinish) {
+            // This activity starts after the finish of the previously selected activity
+            count++;
+            lastFinish = activities[i].first;
+        }
+    }
+    
+    return count;
+}
