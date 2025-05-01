@@ -1,4 +1,4 @@
-
+![alt text](image.png)
 **The Goal**:  
 Our main objective is to find the smallest value x in the possible range (matrix[0][0] to matrix[n-1][m-1]) such that the number of elements in the matrix less than or equal to x is at least k.
 
