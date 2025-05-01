@@ -1,7 +1,51 @@
-# Detailed Flow of Counting Elements <= 41 in a Sorted Matrix
+
+**The Goal**:  
+Our main objective is to find the smallest value x in the possible range (matrix[0][0] to matrix[n-1][m-1]) such that the number of elements in the matrix less than or equal to x is at least k.
+
+**Code:**
+```cpp
+int n, m;
+
+int findSmallerAndEqual(vector<vector<int>>& arr, int num){
+    int total = 0;
+    int j = m-1;
+    for(int i=0; i<n; ++i){
+        while(j>=0 && arr[i][j]>num){
+            j--;
+        }
+
+        total+=j+1;
+    }
+
+    return total;
+}
+
+int kthSmallest(vector<vector<int>>& matrix, int k) {
+    n = matrix.size();
+    m = matrix[0].size();
+    
+    int l = matrix[0][0];
+    int r = matrix[n-1][m-1];
+    int ans = -1;
+    while(l<=r){
+        int mid = l + (r-l)/2;
+        int smallerOrEqual = findSmallerAndEqual(matrix, mid);
+        if(smallerOrEqual >= k){
+            ans = mid;
+            r = mid - 1;
+        }else if(smallerOrEqual < k){
+            l = mid + 1;
+        }
+    }
+
+    return ans;
+}
+```
+
+### Detailed Flow of Counting Elements <= 41 in a Sorted Matrix
 
 
-## Our Matrix (As a Reference)
+### Our Matrix (As a Reference)
 ```
 [  1,   3,   7,  10,  15,  20,  26,  33,  47,  60]
 [  2,   5,   9,  12,  17,  22,  28,  35,  49,  65]
@@ -15,25 +59,24 @@
 [ 57,  68,  77,  85,  92, 100, 108, 115, 121, 125]
 ```
 
-## Step-by-Step Counting Process
+### Step-by-Step Counting Process
 
 We'll execute the algorithm to count elements ≤ 41:
 
-```python
-def count_less_or_equal(matrix, mid=41):
-    count = 0
-    n = len(matrix)  # n = 10
-    j = n - 1        # j = 9 (start from rightmost column)
-    
-    for i in range(n):
-        # Move left while current element > mid
-        while j >= 0 and matrix[i][j] > mid:
-            j -= 1
-            
-        # Count elements in this row that are <= mid
-        count += (j + 1)
-    
-    return count
+```cpp
+int findSmallerAndEqual(vector<vector<int>>& arr, int num){
+    int total = 0;
+    int j = m-1;
+    for(int i=0; i<n; ++i){
+        while(j>=0 && arr[i][j]>num){
+            j--;
+        }
+
+        total+=j+1;
+    }
+
+    return total;
+}
 ```
 
 ### Row 0 Processing
