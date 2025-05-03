@@ -80,36 +80,49 @@ class Solution {
 public:
     int longestCycle(vector<int>& edges) {
         int n = edges.size();
-        vector<bool> vis(n);
         int ans = -1;
-        for (int i = 0; i < n; ++i) {
-            if (vis[i]) {
+        vector<bool> visited(n, false);
+        for(int i=0; i<n; ++i){
+            if(visited[i] == true){
                 continue;
             }
-            int j = i;
-            vector<int> cycle;
-            while (j != -1 && !vis[j]) {
-                vis[j] = true;
-                cycle.push_back(j);
-                j = edges[j];
+
+            int curNode = i;
+            vector<int> curTour;
+            while(curNode!=-1 && visited[curNode]==false){
+                curTour.push_back(curNode);
+                visited[curNode] = true;
+                curNode = edges[curNode];
             }
-            if (j == -1) {
+            int lastNode = curNode;
+            /* only 2 possible scenario to be here.
+               1: curNode == -1, i.e. this tour was not a cycle. */
+            if(curNode == -1){
                 continue;
             }
-            for (int k = 0; k < cycle.size(); ++k) {
-                if (cycle[k] == j) {
-                    ans = max(ans, (int) cycle.size() - k);
-                    break;
+            
+            /* 2: visited[curNode] == true;
+               it can be a cycle, it cannot be a cycle also.
+               for it to be a cycle, lastNode must be present in the curTour */
+            for(int i=0; i<curTour.size(); ++i){
+                if(curTour[i] == lastNode){
+                    int len = curTour.size() - i;
+                    ans = max(ans, len);
                 }
             }
         }
+
         return ans;
     }
 };
 ```
-  
-Dry run with the following image:
 
+Dry run with the following image:
+After tour completion, 
+curTour will be [ 3, 8, 17, 2, 9, 11 ]
+and the lastNode will 17
+    if(curTour[i] == curNode)
+        int len = curTour.size() - i;
 ![alt text](image.png)
 <!-- tabs:end -->
 
