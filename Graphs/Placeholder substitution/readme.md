@@ -16,8 +16,6 @@ tags:
 
 # [3481. Apply Substitutions 🔒](https://leetcode.com/problems/apply-substitutions)
 
-[中文文档](/solution/3400-3499/3481.Apply%20Substitutions/README.md)
-
 ## Description
 
 <!-- description:start -->
