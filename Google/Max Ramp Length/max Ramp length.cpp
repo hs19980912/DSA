@@ -22,3 +22,4 @@ int maxWidthRamp(vector<int>& nums) {
 
     return finalAns;
 }
+// Video: Maximum Width Ramp - Leetcode 962 - NeetCode
