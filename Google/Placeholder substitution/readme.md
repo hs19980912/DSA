@@ -1,22 +1,18 @@
 ---
-comments: true
-difficulty: Medium
 edit_url: https://github.com/doocs/leetcode/edit/main/solution/3400-3499/3481.Apply%20Substitutions/README_EN.md
 tags:
+    - stringstream, getline
     - Depth-First Search
     - Breadth-First Search
     - Graph
     - Topological Sort
-    - Array
-    - Hash Table
-    - String
 ---
 
 <!-- problem:start -->
 
 # [3481. Apply Substitutions 🔒](https://leetcode.com/problems/apply-substitutions)
 
-[中文文档](/solution/3400-3499/3481.Apply%20Substitutions/README.md)
+
 
 ## Description
 
