@@ -18,3 +18,9 @@ Output: False
 
 [Link](https://leetcode.com/discuss/post/6352084/google-l4-phone-screening-round-by-anony-aa15/)
 
+Follow ups:
+```
+The solution for just checking reachability, only DFS/BFS is sufficient. O(Flights + Airports)
+For a follow-up to minimise number of transfers, use BFS O(Flights + Airports)
+For a follow-up to minimise arrival time at destination, Dijkstra is needed O((Flights + Airports) * log2(Flights))
+```
