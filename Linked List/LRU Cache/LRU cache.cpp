@@ -17,7 +17,6 @@ using namespace std;
 
 class LRUCache {
 public:
-    // Define the structure for a doubly linked list node
     struct Node {
         int key;
         int value;
@@ -58,7 +57,7 @@ public:
     }
 
 private:
-    unordered_map<int, Node*> map;  // HashMap equivalent in C++
+    unordered_map<int, Node*> map;  // map<key, node*>
     Node* head;
     Node* last;
     int capacity;
